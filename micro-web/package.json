@@ -1,0 +1,13 @@
+{
+  "name": "micro-web",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node ./build/run.js",
+    "download": "node ./build/init.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
