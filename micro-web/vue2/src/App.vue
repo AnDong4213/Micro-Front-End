@@ -1,6 +1,6 @@
 <template>
   <div id="app-vue   1">
-    vue2
+    <router-view></router-view>
   </div>
 </template>
 <script>
