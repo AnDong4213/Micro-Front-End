@@ -1,7 +1,6 @@
 <template>
   <div id="root">
-    <!-- <router-view></router-view> -->
-    vue3
+    <router-view></router-view>
   </div>
 </template>
 

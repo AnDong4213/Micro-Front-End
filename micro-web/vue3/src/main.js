@@ -1,6 +1,6 @@
 import { createApp } from 'vue';
 import App from './App.vue';
-// import router from './router';
+import router from './router';
 // import { setMain } from './utils/global'
 
 let instance = null;
@@ -8,7 +8,7 @@ let instance = null;
 function render() {
   instance = createApp(App);
   instance
-    // .use(router)
+    .use(router)
     .mount('#app');
 }
 
