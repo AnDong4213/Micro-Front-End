@@ -4,16 +4,18 @@ import Energy from '../pages/energy/index'
 
 vue.use(VueRouter)
 
-const routes = [{
+const routes = [
+  {
     path: '/energy',
     name: 'Energy',
-    component: Energy
-}]
+    component: Energy,
+  },
+]
 
 const router = new VueRouter({
-    mode: 'hash',
-    base: '/',
-    routes
+  mode: 'hash',
+  base: '/',
+  routes,
 })
 
 export default router
