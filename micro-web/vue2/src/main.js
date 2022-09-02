@@ -6,7 +6,7 @@ Vue.config.productionTip = false
 const render = () => {
   new Vue({
     router,
-    render: h => h(App)
+    render: (h) => h(App),
   }).$mount('#app-vue')
 }
 
@@ -15,7 +15,7 @@ if (!window.__MICRO_WEB__) {
 }
 
 export async function bootstrap() {
-  console.log('bootstrap');
+  console.log('bootstrap')
 }
 
 export async function mount() {

@@ -1,0 +1,40 @@
+{
+  // "editor.fontFamily": "Input Mono",
+  // "editor.fontSize": 15,
+  "editor.formatOnSave": true,
+  "editor.codeActionsOnSave": {
+    "source.fixAll.tslint": true
+  },
+  "editor.defaultFormatter": "Vue.volar",
+  "eslint.validate": ["typescript"],
+  "cSpell.words": ["weapp"],
+  // eslint 保存格式化
+  "eslint.enable": true,
+  "eslint.run": "onType",
+  "eslint.options": {
+    "extensions": [".js", ".ts", ".jsx", ".tsx", ".vue"]
+  },
+  // 编辑器保存格式化
+  "editor.codeActionsOnSave": {
+    "source.fixAll": true,
+    "source.fixAll.eslint": true
+  },
+  // .ts 文件格式化程序
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  // .vue 文件格式化程序
+  "[vue]": {
+    "editor.defaultFormatter": "Vue.volar"
+  },
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  // 操作时作为单词分隔符的字符
+  "editor.wordSeparators": "`~!@#%^&*()=+[{]}\\|;:'\",.<>/?",
+  // 一个制表符等于的空格数
+  "editor.tabSize": 2,
+  // 行尾字符
+  "files.eol": "\n",
+  "html.format.wrapAttributes": "force-aligned"
+}
