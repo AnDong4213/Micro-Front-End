@@ -1,11 +1,12 @@
-const path = require('path');
+const path = require('path')
+const { name } = require('./package.json')
 
 function resolve(dir) {
-  return path.join(__dirname, dir);
+  return path.join(__dirname, dir)
 }
 
-const packageName = 'vue2';
-const port = 9004;
+const packageName = 'vue2'
+const port = 9004
 
 module.exports = {
   outputDir: 'dist', // 打包的目录
@@ -30,8 +31,10 @@ module.exports = {
     },
     output: {
       // 把子应用打包成 umd 库格式 commonjs 浏览器，node环境
-      library: `${packageName}`,
+      library: `${packageName}`, // window.vue2 有值
       libraryTarget: 'umd',
+      filename: 'vue2.js',
+      jsonpFunction: `webpackJsonp_${name}`,
     },
   },
-};
+}

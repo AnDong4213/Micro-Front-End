@@ -51,7 +51,7 @@ export default {
     color: #333333;
 
     img {
-      width: 128px;
+      /* width: 128px; */
       height: 96px;
     }
   }

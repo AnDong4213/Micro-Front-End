@@ -10,7 +10,7 @@ module.exports = {
     library: 'react16',
     libraryTarget: 'umd',
     umdNamedDefine: true,
-    publicPath: 'http://localhost:9003'
+    publicPath: 'http://localhost:9003',
   },
   module: {
     rules: [
@@ -19,29 +19,28 @@ module.exports = {
         use: {
           loader: 'babel-loader',
           options: {
-            presets: ['@babel/preset-env', '@babel/preset-react']
-          }
-        }
+            presets: ['@babel/preset-env', '@babel/preset-react'],
+          },
+        },
       },
       {
         test: /\.(cs|scs)s$/,
-        use: [MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader']
+        use: [MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader'],
       },
-
-    ]
+    ],
   },
   optimization: {
     splitChunks: false,
-    minimize: false
+    minimize: false,
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: './public/index.html'
+      template: './public/index.html',
     }),
 
     new MiniCssExtractPlugin({
-      filename: '[name].css'
-    })
+      filename: '[name].css',
+    }),
   ],
   devServer: {
     headers: { 'Access-Control-Allow-Origin': '*' },
@@ -49,6 +48,6 @@ module.exports = {
     compress: true,
     port: 9003,
     historyApiFallback: true,
-    hot: true
-  }
+    hot: true,
+  },
 }
