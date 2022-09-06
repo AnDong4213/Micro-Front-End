@@ -1,26 +1,41 @@
 <template>
-  <div>中央控制器</div>
+  <Header />
+  <MainNav />
+  <div class="sub-container">
+    <Loading v-if="loading" />
+    <div id='micro-container'
+         v-else>子应用内容</div>
+  </div>
+  <Footer />
 </template>
 
 <script>
-// import Header from "./components/Header";
-// import MainNav from "./components/MainNav";
-// import Loading from "./components/Loading";
+import { ref } from 'vue'
+import Header from './components/Header'
+import MainNav from './components/MainNav'
+import Loading from './components/Loading'
+import Footer from './components/Footer'
 
 // import { loading, header, nav } from './store'
 
 export default {
   name: 'App',
   components: {
-    // Header,
-    // MainNav,
-    // Loading,
+    Header,
+    MainNav,
+    Loading,
+    Footer,
   },
   setup() {
+    const loading = ref(true)
+
+    setTimeout(() => {
+      loading.value = false
+    })
     return {
-      test: '测试'
+      loading
     }
-  }
+  },
 }
 </script>
 
@@ -29,7 +44,7 @@ html,
 body,
 #micro_web_main_app {
   width: 100%;
-  /*height: 100%;*/
+  /* height: 100%; */
 }
 
 * {
