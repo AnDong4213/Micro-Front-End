@@ -13,8 +13,8 @@
   },
   // 编辑器保存格式化
   "editor.codeActionsOnSave": {
-    "source.fixAll": true
-    // "source.fixAll.eslint": true
+    "source.fixAll": true,
+    "source.fixAll.eslint": true
   },
   // .ts 文件格式化程序
   "[typescript]": {
