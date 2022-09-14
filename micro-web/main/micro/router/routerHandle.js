@@ -1,3 +1,5 @@
+import { isTurnChild } from '../utils'
+
 export const turnApp = async () => {
   console.log('路由切换了-- pushState')
 }
