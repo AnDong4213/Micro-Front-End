@@ -7,10 +7,10 @@ export const rewriteRouter = () => {
   window.history.replaceState = patchRouter(window.history.replaceState, 'micro_replace')
 
   window.addEventListener('micro_push', turnApp)
-  window.addEventListener('micro_replace', turnApp2)
+  window.addEventListener('micro_replace', turnApp)
 
   // 监听返回事件
   window.onpopstate = async function () {
-    turnApp3()
+    turnApp()
   }
 }
