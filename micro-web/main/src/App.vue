@@ -10,13 +10,13 @@
 </template>
 
 <script>
-import { ref } from 'vue'
+// import { ref } from 'vue'
 import Header from './components/Header'
 import MainNav from './components/MainNav'
 import Loading from './components/Loading'
 import Footer from './components/Footer'
 
-// import { loading, header, nav } from './store'
+import { loading } from './store'
 
 export default {
   name: 'App',
@@ -27,13 +27,8 @@ export default {
     Footer,
   },
   setup() {
-    const loading = ref(true)
-
-    setTimeout(() => {
-      loading.value = false
-    })
     return {
-      loading
+      loading: loading.loadingStatus
     }
   },
 }
