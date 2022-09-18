@@ -10,10 +10,10 @@ export const registerMicroApps = (appList, lifeCycle) => {
   console.log(appList)
   setList(appList)
 
-  /* lifeCycle.beforeLoad[0]()
+  lifeCycle.beforeLoad[0]()
   setTimeout(() => {
     lifeCycle.mounted[0]()
-  }, 3000) */
+  }, 3000)
   setMainLifecycle(lifeCycle)
 }
 
