@@ -6,14 +6,13 @@ import { currentApp } from './utils'
 // 实现路由拦截
 rewriteRouter()
 
-export const registerMicroApps = (appList, lifeCycle) => {
-  console.log(appList)
-  setList(appList)
+export const registerMicroApps = async (appList, lifeCycle) => {
+  await setList(appList)
 
   lifeCycle.beforeLoad[0]()
   setTimeout(() => {
     lifeCycle.mounted[0]()
-  }, 3000)
+  }, 1000)
   setMainLifecycle(lifeCycle)
 }
 

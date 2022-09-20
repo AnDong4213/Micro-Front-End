@@ -1,5 +1,5 @@
 import { patchRouter } from '../utils'
-import { turnApp, turnApp2, turnApp3 } from './routerHandle'
+import { turnApp } from './routerHandle'
 
 // 重写window的路由跳转
 export const rewriteRouter = () => {
