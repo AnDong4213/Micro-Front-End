@@ -2,9 +2,9 @@
   <Header />
   <MainNav />
   <div class="sub-container">
-    <Loading v-if="loading" />
+    <Loading v-show="loading" />
     <div id='micro-container'
-         v-else>子应用内容</div>
+         v-show="!loading">子应用内容</div>
   </div>
   <Footer />
 </template>

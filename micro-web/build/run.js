@@ -7,6 +7,7 @@ const filePath = {
   react15: path.join(__dirname, '../react15'),
   react16: path.join(__dirname, '../react16'),
   // service: path.join(__dirname, '../service'),
+  main: path.join(__dirname, '../main'),
 }
 
 function runChild() {

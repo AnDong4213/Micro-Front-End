@@ -9,10 +9,10 @@ rewriteRouter()
 export const registerMicroApps = async (appList, lifeCycle) => {
   await setList(appList)
 
-  lifeCycle.beforeLoad[0]()
-  setTimeout(() => {
-    lifeCycle.mounted[0]()
-  }, 1000)
+  // lifeCycle.beforeLoad[0]()
+  // setTimeout(() => {
+  //   lifeCycle.mounted[0]()
+  // }, 1000)
   setMainLifecycle(lifeCycle)
 }
 

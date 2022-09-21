@@ -1,9 +1,9 @@
 import { registerMicroApps, start } from '../../micro/index'
 import { loading } from '../store'
 
-export const registerApp = (list) => {
+export const registerApp = async (list) => {
   // 注册到微前端框架里
-  registerMicroApps(list, {
+  await registerMicroApps(list, {
     beforeLoad: [
       () => {
         loading.changeLoading(true)
