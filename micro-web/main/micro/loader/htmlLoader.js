@@ -1,23 +1,24 @@
 import { fetchResources } from '../utils/fetchResources'
+import { performScriptForEval } from '../sandbox/performScript'
 const cache = {}
 
 // 解析html
 export const parseHtml = async (entry, name) => {
   if (cache[name]) {
-    // return cache[name]
+    return cache[name]
   }
   const html = await fetchResources(entry)
   // console.log(html)
   const div = document.createElement('div')
   div.innerHTML = html
 
-  let allScript
-  const [dom, scriptUrl, script] = await getResources(div, entry)
+  let allScript = []
+  const [dom, scriptUrl, script] = getResources(div, entry)
 
   const fetchedScripts = await Promise.all(scriptUrl.map(async (item) => fetchResources(item)))
   allScript = script.concat(fetchedScripts)
   cache[name] = [dom, allScript]
-  console.log('dom', dom, allScript)
+
   return [dom, allScript]
 }
 
@@ -87,7 +88,11 @@ export const loadHtml = async (app) => {
   }
 
   const [dom, scripts] = await parseHtml(entry, app.name)
+  // console.log('dom', dom, scripts)
   ct.innerHTML = dom
+  scripts.forEach(script => {
+    performScriptForEval(script)
+  })
 
   return app
 }
