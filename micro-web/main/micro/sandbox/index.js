@@ -1,11 +1,12 @@
-import { performScriptForEval } from './performScript'
-// import { SnapShotSandbox } from './snapShotSandbox'
-import { ProxySandbox } from './proxySandbox'
+import { performScriptForFunction } from './performScript'
+import { SnapShotSandbox } from './snapShotSandbox'
+// import { ProxySandbox } from './proxySandbox'
+
 const isCheckLifeCycle = (lifecycle) => lifecycle && lifecycle.bootstrap && lifecycle.mount && lifecycle.unmount
 
 // 子应用生命周期处理， 环境变量设置
 export const sandBox = (app, script) => {
-  const proxy = new ProxySandbox()
+  const proxy = new SnapShotSandbox()
 
   if (!app.proxy) {
     app.proxy = proxy
@@ -15,7 +16,10 @@ export const sandBox = (app, script) => {
   window.__MICRO_WEB__ = true
 
   // 2. 运行js文件
-  const lifecycle = performScriptForEval(script, app.name, app.proxy.proxy)
+  // const lifecycle = performScriptForEval(app.name, script)
+  const lifecycle = performScriptForFunction(app.name, script, app.proxy.proxy)
+
+  console.log('====', lifecycle)
 
   // 生命周期，挂载到app上
   if (isCheckLifeCycle(lifecycle)) {

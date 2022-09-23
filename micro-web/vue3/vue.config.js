@@ -1,12 +1,12 @@
-const path = require('path');
+const path = require('path')
 
 const packageName = 'vue3'
 
 function resolve(dir) {
-  return path.join(__dirname, dir);
+  return path.join(__dirname, dir)
 }
 
-const port = 9005;
+const port = 9005
 
 module.exports = {
   outputDir: 'dist',
@@ -37,4 +37,5 @@ module.exports = {
       jsonpFunction: `webpackJsonp_${packageName}`,
     },
   },
-};
+}
+// 注意，output.library 不能与 output.libraryTarget 一起使用，

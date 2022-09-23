@@ -1,32 +1,31 @@
-import { createApp } from 'vue';
-import App from './App.vue';
-import router from './router';
+import { createApp } from 'vue'
+import App from './App.vue'
+import router from './router'
 // import { setMain } from './utils/global'
 
-let instance = null;
+let instance = null
 
 function render() {
-  instance = createApp(App);
-  instance
-    .use(router)
-    .mount('#app');
+  instance = createApp(App)
+  instance.use(router).mount('#app')
 }
 
 if (!window.__MICRO_WEB__) {
-  render();
+  render()
 }
 export async function bootstrap() {
-  console.log('vue3.0 app bootstrap');
+  console.log('vue3.0 app bootstrap')
 }
 
 export async function mount() {
-//   setMain(app)
-  render();
+  //   setMain(app)
+  window.a = 1
+  render()
 }
 
 export async function unmount(ctx) {
-  instance.unmount();
-  instance = null;
+  instance.unmount()
+  instance = null
   const { container } = ctx
   if (container) {
     document.querySelector(container).innerHTML = ''

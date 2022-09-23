@@ -1,11 +1,12 @@
 import { fetchResources } from '../utils/fetchResources'
-import { performScriptForEval } from '../sandbox/performScript'
+import { sandBox } from '../sandbox'
+
 const cache = {}
 
 // 解析html
 export const parseHtml = async (entry, name) => {
   if (cache[name]) {
-    return cache[name]
+    // return cache[name]
   }
   const html = await fetchResources(entry)
   // console.log(html)
@@ -83,6 +84,7 @@ export const loadHtml = async (app) => {
 
   const ct = document.querySelector(container)
   console.log(ct)
+  console.log(app)
   if (!ct) {
     throw Error(`容器不存在，请查看`)
   }
@@ -90,8 +92,9 @@ export const loadHtml = async (app) => {
   const [dom, scripts] = await parseHtml(entry, app.name)
   // console.log('dom', dom, scripts)
   ct.innerHTML = dom
-  scripts.forEach(script => {
-    performScriptForEval(script)
+  scripts.forEach((script) => {
+    // performScriptForEval(script)
+    sandBox(app, script)
   })
 
   return app

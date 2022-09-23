@@ -11,17 +11,22 @@ export const lifecycle = async () => {
   if (!nextApp) {
     return
   }
-
-  if (prevApp && prevApp.destoryed) {
+  console.log('prevApp', prevApp, nextApp)
+  if (prevApp && prevApp.unmount) {
+    if (prevApp.proxy) {
+      prevApp.proxy.inactive()
+    }
+    // 卸载上一个应用
     await destoryed(prevApp)
   }
+
   const app = await beforeLoad(nextApp)
   await mounted(app)
 }
 
 export const beforeLoad = async (app) => {
   await runMainLifeCycle('beforeLoad')
-  app && app.beforeLoad && app.beforeLoad()
+  app && app.bootstrap && app.bootstrap()
 
   const subApp = await loadHtml(app)
   subApp && subApp.beforeLoad && subApp.beforeLoad()
@@ -29,14 +34,14 @@ export const beforeLoad = async (app) => {
 }
 
 export const mounted = async (app) => {
-  app && app.mounted && app.mounted()
+  app && app.mount && app.mount()
 
   await runMainLifeCycle('mounted')
 }
 
 // 卸载
 export const destoryed = async (app) => {
-  app && app.destoryed && app.destoryed()
+  app && app.unmount && app.unmount()
 
   // 对应执行主应用的生命周期
   await runMainLifeCycle('destoryed')
