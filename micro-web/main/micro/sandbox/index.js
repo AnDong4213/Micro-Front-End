@@ -1,4 +1,4 @@
-import { performScriptForFunction } from './performScript'
+import { performScriptForFunction, performScriptForEval } from './performScript'
 import { SnapShotSandbox } from './snapShotSandbox'
 // import { ProxySandbox } from './proxySandbox'
 
@@ -16,8 +16,8 @@ export const sandBox = (app, script) => {
   window.__MICRO_WEB__ = true
 
   // 2. 运行js文件
-  // const lifecycle = performScriptForEval(app.name, script)
-  const lifecycle = performScriptForFunction(app.name, script, app.proxy.proxy)
+  const lifecycle = performScriptForEval(app.name, script, app.proxy.proxy)
+  // const lifecycle = performScriptForFunction(app.name, script, app.proxy.proxy)
 
   console.log('====', lifecycle)
 

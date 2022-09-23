@@ -24,10 +24,14 @@ export async function mount() {
 }
 
 export async function unmount(ctx) {
-  instance.unmount()
-  instance = null
-  const { container } = ctx
-  if (container) {
-    document.querySelector(container).innerHTML = ''
+  if (ctx) {
+    console.log('unmount')
+    /* instance.unmount()
+    instance = null
+
+    const { container } = ctx
+    if (container) {
+      document.querySelector(container).innerHTML = ''
+    } */
   }
 }

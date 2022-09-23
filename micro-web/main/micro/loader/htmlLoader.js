@@ -71,7 +71,7 @@ export const getResources = (root, entry) => {
 
   deepParse(root)
 
-  // scriptUrl = Array.from(new Set(scriptUrl))
+  scriptUrl = Array.from(new Set(scriptUrl))
   return [dom, scriptUrl, script]
 }
 

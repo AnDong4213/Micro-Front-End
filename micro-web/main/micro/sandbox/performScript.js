@@ -2,22 +2,22 @@
 export const performScriptForEval = (appName, script, global) => {
   // window['${appName}']，${appName}两边的分号必须带着
 
-  /* const scriptText = `
+  const scriptText = `
     () => {
       ${script}
       return window['${appName}']
     }
   `
-  return eval(scriptText).call(window, window) */
+  return eval(scriptText).call(global, global)
 
-  window.proxy = global
+  /* window.proxy = global
   const scriptText = `
     return ((window) => {
       ${script}
       return window['${appName}']
     })(window.proxy)
   `
-  return new Function(scriptText)
+  return new Function(scriptText) */
 }
 
 export const performScriptForFunction = (appName, script, global) => {
