@@ -7,20 +7,20 @@ export const registerApp = async (list) => {
     beforeLoad: [
       () => {
         loading.changeLoading(true)
-        console.log('开始加载')
+        console.log('主应用-开始加载')
       },
     ],
     mounted: [
       () => {
         loading.changeLoading(false)
-        console.log('渲染完成')
+        console.log('主应用-渲染完成')
       },
     ],
     destoryed: [
       () => {
-        console.log('卸载完成')
+        console.log('主应用-卸载完成')
       },
     ],
   })
-  start()
+  await start()
 }

@@ -15,10 +15,11 @@ export const parseHtml = async (entry, name) => {
 
   let allScript = []
   const [dom, scriptUrl, script] = getResources(div, entry)
+  // console.log('scriptUrl---', scriptUrl)
 
   const fetchedScripts = await Promise.all(scriptUrl.map(async (item) => fetchResources(item)))
   allScript = script.concat(fetchedScripts)
-  cache[name] = [dom, allScript]
+  // cache[name] = [dom, allScript]
 
   return [dom, allScript]
 }
@@ -83,8 +84,8 @@ export const loadHtml = async (app) => {
   let entry = app.entry
 
   const ct = document.querySelector(container)
-  console.log(ct)
-  console.log(app)
+  // console.log(ct)
+  // console.log(app)
   if (!ct) {
     throw Error(`容器不存在，请查看`)
   }

@@ -4,14 +4,14 @@ import { loadHtml } from '../loader/htmlLoader'
 
 // 改变了路由，重新装载新的子应用
 export const lifecycle = async () => {
-  const prevApp = findAppByRoute(window.__ORIGIN_APP__) // 获取上一个子应用
-  const nextApp = findAppByRoute(window.__CURRENT_SUB_APP__) // 获取跳转后的子应用
+  const prevApp = await findAppByRoute(window.__ORIGIN_APP__) // 获取上一个子应用
+  const nextApp = await findAppByRoute(window.__CURRENT_SUB_APP__) // 获取跳转后的子应用
 
-  console.log(prevApp, nextApp)
+  console.log('------------', prevApp, nextApp)
   if (!nextApp) {
     return
   }
-  console.log('prevApp', prevApp, nextApp)
+
   if (prevApp && prevApp.unmount) {
     if (prevApp.proxy) {
       prevApp.proxy.inactive()
@@ -26,7 +26,7 @@ export const lifecycle = async () => {
 
 export const beforeLoad = async (app) => {
   await runMainLifeCycle('beforeLoad')
-  app && app.bootstrap && app.bootstrap()
+  app && app.bootstrap && (await app.bootstrap())
 
   const subApp = await loadHtml(app)
   subApp && subApp.beforeLoad && subApp.beforeLoad()
@@ -52,5 +52,7 @@ export const runMainLifeCycle = async (type) => {
   const mainLife = getMainLifecycle()
 
   // 因为主应用里配置的生命周期是一个数组，所以需要执行数组中的所有内容
-  await Promise.all(mainLife[type].map((item) => item()))
+  if (mainLife && mainLife[type]) {
+    await Promise.all(mainLife[type].map((item) => item()))
+  }
 }

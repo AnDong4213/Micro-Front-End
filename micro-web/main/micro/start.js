@@ -17,14 +17,14 @@ export const registerMicroApps = async (appList, lifeCycle) => {
 }
 
 // 启动微前端框架
-export const start = () => {
+export const start = async () => {
   const apps = getList()
 
   if (!apps.length) {
     throw Error('子应用列表为空，请正确注册')
   }
 
-  const app = currentApp()
+  const app = await currentApp()
   // console.log('app', app)
   if (app) {
     const { pathname, hash } = window.location
