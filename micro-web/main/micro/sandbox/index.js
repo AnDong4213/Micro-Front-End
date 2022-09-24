@@ -1,12 +1,12 @@
 import { performScriptForFunction } from './performScript'
-import { SnapShotSandbox } from './snapShotSandbox'
-// import { ProxySandbox } from './proxySandbox'
+// import { SnapShotSandbox } from './snapShotSandbox'
+import { ProxySandbox } from './proxySandbox'
 
 const isCheckLifeCycle = (lifecycle) => lifecycle && lifecycle.bootstrap && lifecycle.mount && lifecycle.unmount
 
 // 子应用生命周期处理， 环境变量设置
 export const sandBox = (app, script) => {
-  const proxy = new SnapShotSandbox()
+  const proxy = new ProxySandbox()
 
   if (!app.proxy) {
     app.proxy = proxy

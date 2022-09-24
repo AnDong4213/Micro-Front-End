@@ -12,13 +12,15 @@ if (!window.__MICRO_WEB__) {
 }
 
 export const bootstrap = () => {
-  console.log('bootstrap')
+  console.log('react15-bootstrap')
 }
 
 export const mount = () => {
+  window.aaa = 9999
+  console.log('react15-mount')
   render()
 }
 
 export const unmount = () => {
-  console.log('卸载')
+  console.log('react15-卸载')
 }

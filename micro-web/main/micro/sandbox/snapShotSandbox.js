@@ -12,7 +12,6 @@ export class SnapShotSandbox {
   active() {
     // 创建一个沙箱
     this.snapshot = new Map()
-
     // 遍历全局环境
     for (const key in window) {
       this.snapshot[key] = window[key]

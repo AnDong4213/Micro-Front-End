@@ -42,6 +42,9 @@ export const isTurnChild = () => {
   if (prefix) {
     prefix = prefix[0]
   }
+  if (prefix === '/index') {
+    return false
+  }
 
   window.__ORIGIN_APP__ = window.__CURRENT_SUB_APP__
   if (window.__CURRENT_SUB_APP__ === prefix) {
