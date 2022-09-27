@@ -9,8 +9,8 @@ import './index.scss'
 const Login = () => {
   useEffect(() => {
     const main = getMain()
-    // main.appInfo.header.changeHeader(false)
-    // main.appInfo.nav.changeNav(false)
+    main.appInfo.header.changeHeader(false)
+    main.appInfo.nav.changeNav(false)
   }, [])
 
   return (

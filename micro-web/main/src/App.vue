@@ -1,6 +1,6 @@
 <template>
-  <Header />
-  <MainNav />
+  <Header v-show="headerStatus" />
+  <MainNav v-show="navStatus" />
   <div class="sub-container">
     <Loading v-show="loading" />
     <div id='micro-container'
@@ -16,7 +16,8 @@ import MainNav from './components/MainNav'
 import Loading from './components/Loading'
 import Footer from './components/Footer'
 
-import { loading } from './store'
+
+import { loading, header, nav } from './store'
 
 export default {
   name: 'App',
@@ -28,7 +29,9 @@ export default {
   },
   setup() {
     return {
-      loading: loading.loadingStatus
+      loading: loading.loadingStatus,
+      headerStatus: header.headerStatus,
+      navStatus: nav.navStatus,
     }
   },
 }

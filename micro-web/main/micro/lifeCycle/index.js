@@ -34,14 +34,19 @@ export const beforeLoad = async (app) => {
 }
 
 export const mounted = async (app) => {
-  app && app.mount && app.mount()
+  app &&
+    app.mount &&
+    (await app.mount({
+      appInfo: app.appInfo,
+      entry: app.entry,
+    }))
 
   await runMainLifeCycle('mounted')
 }
 
 // 卸载
 export const destoryed = async (app) => {
-  app && app.unmount && app.unmount()
+  app && app.unmount && (await app.unmount())
 
   // 对应执行主应用的生命周期
   await runMainLifeCycle('destoryed')

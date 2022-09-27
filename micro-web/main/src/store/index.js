@@ -2,7 +2,7 @@
 export * as loading from './loading'
 
 // 暴露header的方法
-// export * as header from './header'
+export * as header from './header'
 
 // 暴露nav的方法
-// export * as nav from './nav'
+export * as nav from './nav'
