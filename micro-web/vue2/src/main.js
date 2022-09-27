@@ -21,13 +21,17 @@ export async function bootstrap() {
 }
 
 export async function mount() {
+  console.log('vue2- mount')
+  window.custom.emit('test2', {
+    b: 888
+  })
   render()
 }
 
-export async function unmount(ctx) {
-  console.log('卸载', instance)
-  const { container } = ctx
+export async function unmount() {
+  console.log('vue2-卸载', instance)
+  /* const { container } = ctx
   if (container) {
     document.querySelector(container).innerHTML = ''
-  }
+  } */
 }

@@ -20,7 +20,12 @@ export async function bootstrap() {
 export async function mount() {
   //   setMain(app)
   console.log('vue3- mount')
-  window.a = 1
+  window.custom.emit('test', {
+    a: 666
+  })
+  window.custom.on('test2', (data) => {
+    console.log('++++===', data)
+  })
   render()
 }
 
