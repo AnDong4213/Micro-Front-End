@@ -6,7 +6,7 @@ const cache = {}
 // 解析html
 export const parseHtml = async (entry, name) => {
   if (cache[name]) {
-    // return cache[name]
+    return cache[name]
   }
   const html = await fetchResources(entry)
   // console.log(html)
@@ -19,7 +19,7 @@ export const parseHtml = async (entry, name) => {
 
   const fetchedScripts = await Promise.all(scriptUrl.map(async (item) => fetchResources(item)))
   allScript = script.concat(fetchedScripts)
-  // cache[name] = [dom, allScript]
+  cache[name] = [dom, allScript]
 
   return [dom, allScript]
 }

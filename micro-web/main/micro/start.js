@@ -3,6 +3,7 @@ import { setMainLifecycle } from './const/mainLifeCycles'
 import { rewriteRouter } from './router/rewriteRouter'
 import { currentApp } from './utils'
 import { Custom } from './customevent'
+import { prefetch } from './loader/prefetch'
 
 const custom = new Custom()
 custom.on('test', (data) => {
@@ -39,4 +40,8 @@ export const start = async () => {
     window.history.pushState('', '', url)
     window.__CURRENT_SUB_APP__ = app.activeRule
   }
+
+  setTimeout(async () => {
+    await prefetch()
+  })
 }
