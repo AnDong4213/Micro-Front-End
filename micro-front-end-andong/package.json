@@ -1,0 +1,16 @@
+{
+  "name": "micro-front-end-andong",
+  "version": "1.0.0",
+  "description": "微前端",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "微前端",
+    "vue3",
+    "react"
+  ],
+  "author": "andong",
+  "license": "ISC"
+}
