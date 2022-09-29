@@ -7,7 +7,7 @@ export const lifecycle = async () => {
   const prevApp = await findAppByRoute(window.__ORIGIN_APP__) // 获取上一个子应用
   const nextApp = await findAppByRoute(window.__CURRENT_SUB_APP__) // 获取跳转后的子应用
 
-  console.log('------------', prevApp, nextApp)
+  // console.log('------------', prevApp, nextApp)
   if (!nextApp) {
     return
   }

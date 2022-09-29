@@ -5,7 +5,7 @@ export const turnApp = async () => {
   if (isTurnChild()) {
     // 微前端的生命周期执行
     await lifecycle()
-    console.log('路由切换了-- pushState')
+    // console.log('路由切换了-- pushState')
   }
 }
 

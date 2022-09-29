@@ -1,4 +1,5 @@
-import { registerMicroApps, start, createStore } from '../../micro/index'
+// import { registerMicroApps, start, createStore } from '../../micro/index'
+import { registerMicroApps, start, createStore } from 'micro-front-end-andong'
 import { loading } from '../store'
 
 const store = createStore()

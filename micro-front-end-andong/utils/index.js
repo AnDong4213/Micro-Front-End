@@ -20,7 +20,7 @@ const filterApp = (key, rule) => {
 export const currentApp = () => {
   // const currentUrl = window.location.pathname
   const currentUrl = window.location.pathname.match(/(\/\w+)/)
-  console.log('currentUrl', currentUrl[0])
+  // console.log('currentUrl', currentUrl[0])
 
   return filterApp('activeRule', currentUrl[0])
 }

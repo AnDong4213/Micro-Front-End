@@ -19,7 +19,7 @@ export const sandBox = (app, script) => {
   // const lifecycle = performScriptForEval(app.name, script, app.proxy.proxy)
   const lifecycle = performScriptForFunction(app.name, script, app.proxy.proxy)
 
-  console.log('====', lifecycle)
+  // console.log('====', lifecycle)
 
   // 生命周期，挂载到app上
   if (isCheckLifeCycle(lifecycle)) {
