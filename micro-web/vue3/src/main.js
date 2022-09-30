@@ -20,7 +20,7 @@ export async function bootstrap() {
 export async function mount() {
   //   setMain(app)
   console.log('vue3- mount')
-  window.custom.emit('test', {
+  /* window.custom.emit('test', {
     a: 666,
   })
   window.custom.on('test2', (data) => {
@@ -33,7 +33,7 @@ export async function mount() {
   window.store.update({
     ...storeData,
     b: 22,
-  })
+  }) */
   render()
 }
 
