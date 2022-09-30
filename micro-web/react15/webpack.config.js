@@ -2,6 +2,8 @@ const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 
+const packageName = require('./package.json').name
+
 module.exports = {
   entry: {
     path: ['./index.js'],
@@ -45,10 +47,14 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: 'react15.js',
-    library: 'react15',
-    libraryTarget: 'umd',
+    // library: 'react15',
+    // libraryTarget: 'umd',
     umdNamedDefine: true,
     publicPath: 'http://localhost:9002/',
+
+    library: `${packageName}-[name]`,
+    libraryTarget: 'umd',
+    jsonpFunction: `webpackJsonp_${packageName}`,
   },
   devServer: {
     // 配置允许跨域

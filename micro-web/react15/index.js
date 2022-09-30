@@ -7,20 +7,19 @@ const render = () => {
   ReactDOM.render(<BasicMap />, document.getElementById('app-react'))
 }
 
-if (!window.__MICRO_WEB__) {
+if (!window.__POWERED_BY_QIANKUN__) {
   render()
 }
 
-export const bootstrap = () => {
+export const bootstrap = async () => {
   console.log('react15-bootstrap')
 }
 
-export const mount = () => {
-  window.aaa = 9999
+export const mount = async () => {
   console.log('react15-mount')
   render()
 }
 
-export const unmount = () => {
+export const unmount = async () => {
   console.log('react15-卸载')
 }

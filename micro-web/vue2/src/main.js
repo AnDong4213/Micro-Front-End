@@ -12,7 +12,7 @@ const render = () => {
   }).$mount('#app-vue')
 }
 
-if (!window.__MICRO_WEB__) {
+if (!window.__POWERED_BY_QIANKUN__) {
   render()
 }
 

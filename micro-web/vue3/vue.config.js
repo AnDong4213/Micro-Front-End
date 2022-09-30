@@ -1,6 +1,7 @@
 const path = require('path')
 
-const packageName = 'vue3'
+// const packageName = 'vue3'
+const packageName = require('./package.json').name
 
 function resolve(dir) {
   return path.join(__dirname, dir)
@@ -32,7 +33,11 @@ module.exports = {
     output: {
       // 把子应用打包成 umd 库格式
       filename: 'vue3.js',
-      library: `${packageName}`,
+      /* library: `${packageName}`,
+      libraryTarget: 'umd',
+      jsonpFunction: `webpackJsonp_${packageName}`, */
+
+      library: `${packageName}-[name]`,
       libraryTarget: 'umd',
       jsonpFunction: `webpackJsonp_${packageName}`,
     },
