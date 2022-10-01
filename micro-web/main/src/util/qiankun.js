@@ -31,4 +31,10 @@ export const registerApp = (list) => {
 
   // 开启微前端框架
   start()
+
+  /* loadMicroApp({
+    name: 'yinyue',
+    entry: '//localhost:8082',
+    container: '#micro-container2',
+  }) */
 }

@@ -29,4 +29,10 @@ export const subNavList = [
     entry: '//localhost:9005',
     props: appInfo,
   },
+  /* {
+    name: 'yinyue',
+    activeRule: '/yinyue',
+    container: '#micro-container',
+    entry: '//localhost:8082',
+  }, */
 ]

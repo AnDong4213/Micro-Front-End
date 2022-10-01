@@ -21,6 +21,10 @@ const routes = [
     path: '/vue3',
     component: () => import('../App.vue'),
   },
+  {
+    path: '/yinyue',
+    component: () => import('../App.vue'),
+  },
 ]
 
 const router = (basename = '') =>

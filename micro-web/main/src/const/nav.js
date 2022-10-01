@@ -47,4 +47,11 @@ export const NAV_LIST = [
     url: '/react16#/rank',
     hash: '',
   },
+  /* {
+    name: '音乐',
+    status: false,
+    value: 7,
+    url: '/yinyue',
+    hash: '',
+  }, */
 ]
